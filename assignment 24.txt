@@ -1,0 +1,216 @@
+                                                                   Assignment - 24 Job Ready Bootcamp in C++, DSA and IOT MySirG
+
+                                                                                        Functions in C++
+
+
+
+1. Define a function to check whether a given number is a Prime number or not.
+
+Ans.#include<iostream>
+using namespace std;
+void prime(int n) {
+	for(int i=2; i<=n/2; i++) {
+		if(n%i==0) {
+			cout<<"Not Prime";
+			return;
+		}
+
+	}
+	cout<<"Prime";
+}
+int main() {
+	int n;
+	cin>>n;
+	prime(n);
+	return 0;
+}
+
+
+2. Define a function to find the highest value digit in a given number.
+
+Ans.#include<iostream>
+using namespace std;
+int highest(int,int);
+int main() {
+	int digit;
+	cin>>digit;
+	cout<<highest(digit,0);
+	return 0;
+}
+
+int highest(int digit,int mark) {
+	if(digit==0)return mark;
+	if(mark<digit%10)mark=digit%10;
+	return highest(digit/10,mark);
+}
+
+
+3. Define a function to calculate x raised to the power y.
+
+Ans.#include<iostream>
+using namespace std;
+int power(int x,int y) {
+	int ans=1;
+
+	for(int i=y; i>=1; i--)ans*=x;
+	return ans;
+}
+
+int main() {
+	int x,y;
+	cin>>x>>y;
+	cout<<power(x,y);
+	return 0;
+}
+
+
+4. Define a function to print Pascal Triangle up to N lines.
+
+Ans.
+
+
+5. Define a function to check whether a given number is a term in a Fibonacci series or
+not.
+
+Ans.#include<iostream>
+using namespace std;
+int fib(int x) {
+	if(x==1)return 1;
+	if(x==2)return 2;
+	return fib(x-1)+fib(x-2);
+}
+
+int main() {
+	int x;
+	cin>>x;
+	for(int i=1; i<=x; i++) {
+		
+		if(fib(i)==x) {
+			cout<<"Available";
+			return 0;
+		}
+	}
+
+	cout<<"Not Available";
+	return 0;
+}
+
+
+6. Define a function to swap data of two int variables using call by reference
+
+Ans.#include<iostream>
+using namespace std;
+void swap(int*, int*);
+int main() {
+	int a,b;
+	cin>>a>>b;
+	swap(&a,&b);
+	cout<<"a= "<<a<<" b= "<<b;
+	return 0;
+}
+void swap(int *a,int *b){*a=*a+*b;
+*b=*a-*b;
+*a=*a-*b;
+}
+
+
+7. Write a function using the default argument that is able to add 2 or 3 numbers.
+
+Ans.#include<iostream>
+using namespace std;
+int add(int a,int b,int c=0) {
+	return a+b+c;
+}
+int main() {
+	int a,b,c;
+	cout<<"Enter three numbers: ";
+	cin>>a>>b>>c;
+	cout<<"sum of "<<a<<" and "<<b<<" :"<<add(a,b);
+	cout<<endl<<"sum of "<<a<<" , "<<b<<" and "<<c<<" :"<<add(a,b);
+	
+	return 0;
+}
+
+
+8. Define overloaded functions to calculate area of circle, area of rectangle and area of
+triangle
+
+Ans.#include<iostream>
+using namespace std;
+float area(int r) {
+	return 3.14*r*r;
+}
+float area(int l,int b){return l*b;
+}
+float area(float b,float h){return (b*h)/2;
+}
+int main() {
+	int l,b,r;
+	float base,h;
+	
+	cout<<"\nEnter Radius of circle: ";
+	cin>>r;
+	cout<<"\nArea of circle: "<<area(r);
+	cout<<"\nEnter length and breadth of rectangle: ";
+	cin>>l>>b;
+	cout<<endl<<"Area of rectangle: "<<area(l,b);
+	cout<<"\nEnter base and height of triangle: ";
+	cin>>base>>h;
+	cout<<endl<<"Area of triangle: "<<area(base,h);
+	
+	return 0;
+}
+
+
+9. Write functions using function overloading to find a maximum of two numbers and
+both the numbers can be integer or real.
+
+Ans.#include<iostream>
+using namespace std;
+float max(float f1,float f2) {
+	if(f1>f2)return f1;
+	else return f2;
+}
+
+int max(int i1,int i2) {
+	if(i1>i2)return i1;
+	else return i2;
+}
+int main() {
+	int i1,i2;
+	float f1,f2;
+	cout<<"Enter float numbers: ";
+	cin>>f1>>f2;
+	cout<<endl<<"Enter integer numbers: ";
+	cin>>i1>>i2;
+	cout<<"max float: "<<max(f1,f2);
+	cout<<"\nmax integer: "<<max(i1,i2);
+
+	return 0;
+}
+
+
+10. Write functions using function overloading to add two numbers having different data
+types.
+
+Ans.#include<iostream>
+using namespace std;
+float add(float f1,float f2) {
+	return f1+f2;
+}
+
+int add(int i1,int i2) {
+	return i1+i2;
+}
+int main() {
+	int i1,i2;
+	float f1,f2;
+	cout<<"Enter float numbers: ";
+	cin>>f1>>f2;
+	cout<<endl<<"Enter integer numbers: ";
+	cin>>i1>>i2;
+	cout<<"sum float: "<<add(f1,f2);
+	cout<<"\nsum integer: "<<add(i1,i2);
+
+	return 0;
+}
